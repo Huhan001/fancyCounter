@@ -3,6 +3,7 @@ import style from './Project.module.css';
 
 const ResetButton = ({setNumber}) => {
     // i find this to be most convenient way as to create a function and pass it as an event handler button onClick event.
+    // its a much cleaner way to handle the event.
     const setZero = () => {
         setNumber(0);
     }
