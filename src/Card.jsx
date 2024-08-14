@@ -3,11 +3,34 @@ import ButtonsContainer from "./ButtonsContainer";
 import ResetButton from "./ResetButton";
 import { Title } from "./Title";
 import style from "./Project.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Card = () => {
   const [number, setNumber] = useState(0);
   const locked = number === 5 ? true : false;
+
+  /*    purposed solution to the problem of the user not 
+        being able to use the keyboard to increment the counter.
+        useEffect hook has a cleanup function that is returned 
+        when the component is unmounted.
+        it is best if we remove the previous event listener before adding a new one.*/
+
+  const handleKeyDown = (events) => {
+    events.code === "Space" && setNumber(number + 1);
+  };
+
+  const cleaner = () => {
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+
+  useEffect(() => {
+    window.addEventListener(
+      "keydown",
+      number < 5 ? handleKeyDown : setNumber(5)
+    );
+
+    return cleaner;
+  }, [number]);
 
   return (
     <div className={`${style.card} ${locked ? style.card_limit : ""}`}>
