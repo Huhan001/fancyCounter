@@ -43,7 +43,5 @@ export const Card = () => {
 };
 
 // you should use the react fragments to wrap the elements in the Card component.
-{
-  /* <></> */
-}
+// the keydown event listener is added to the window object.
 // pop drilling is the passing of a prop from a parent component to a child component that doesn't need it, but it needs to pass it to another child component that needs it.
