@@ -43,7 +43,7 @@ main {
   transition: all 0.4s;
 }
 
-.card--limit {
+.card_limit {
   background-color: #a3d11b;
 }
 

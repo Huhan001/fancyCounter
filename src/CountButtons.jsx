@@ -1,12 +1,12 @@
 import style from "./Project.module.css";
 import { MinusIcon, PlusIcon } from "@radix-ui/react-icons";
 
-const CountButtons = ({ type, setNumber }) => {
+const CountButtons = ({ type, setNumber, locked }) => {
   const addition = () => {
     setNumber((prev) => prev + 1);
   };
   const subtraction = () => {
-    setNumber((prev) => prev - 1);
+    setNumber((prev) => (prev === 0 ? 0 : prev - 1));
   };
 
   return (
@@ -16,6 +16,7 @@ const CountButtons = ({ type, setNumber }) => {
       {/* assigned the ternary directly to the onClick event handler. */}
 
       <button
+        disabled={locked}
         onClick={type === "minus" ? subtraction : addition}
         className={style.count_btn}
       >
