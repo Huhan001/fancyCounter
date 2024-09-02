@@ -23,6 +23,7 @@ export const Card = () => {
     window.removeEventListener("keydown", handleKeyDown);
   };
 
+//Adding listener to interact with keyboard
   useEffect(() => {
     window.addEventListener(
       "keydown",
